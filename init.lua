@@ -1,0 +1,8 @@
+require 'utils'
+require 'core'
+require 'plugins'
+require 'settings'
+require 'themes'
+require 'configs'
+require 'keymaps'
+require 'misc'
