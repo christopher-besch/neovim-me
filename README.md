@@ -23,9 +23,8 @@
     └── misc.lua		# miscellaneous stuff
 ```
 
----
 # Notes
-- `plugin_manager.lua` is setup with [packer](https://github.com/wbthomason/packer.nvim) by default,
+- `plugin_manager.lua` is setup with [packer](https://github.com/wbthomason/packer.nvim) by default, 
 however with a bit of lua knowledge one can implement whatever plugin manager desired.
 
 - `themes.lua` implements
@@ -33,4 +32,5 @@ however with a bit of lua knowledge one can implement whatever plugin manager de
 	- `:ThemeCycle` cycles between all themes
 
 # WIP
-this project is a wip which will keep evolving over time as more features are introduced.
+- this project is a work in progress which will keep evolving over time as more features are introduced.
+- somethings are implemented with `viml` in a `lua` api wrapper because the neovim lua implementation is a WIP currently.
