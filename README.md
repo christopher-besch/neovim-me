@@ -1,5 +1,5 @@
 <div align="center">
-# NeovimMe - 100% LUA & Modular
+<h1> NeovimMe - 100% LUA & Modular </h1>
 
 <a href="https://github.com/neovim/neovim"> ![Requires](https://img.shields.io/badge/requires-neovim%200.5%2B-green?style=flat-square&logo=neovim) </a>
 <a href="#wip"> ![Status](https://img.shields.io/badge/status-WIP-informational?style=flat-square) </a>
