@@ -15,6 +15,11 @@ function set(prop)
 	vim.cmd('set '..prop)
 end
 
+-- executes a :setlocal
+function set(prop)
+	vim.cmd('setlocal '..prop)
+end
+
 -- executes a :cnoreabbrev
 function abbrev(arg)
 	vim.cmd('cnoreabbrev '..arg)

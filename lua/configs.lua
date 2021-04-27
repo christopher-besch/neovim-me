@@ -68,7 +68,7 @@ function C.compe()
 end
 
 function C.bufferline()
-	require'bufferline'.setup {
+	require 'bufferline'.setup {
 		options = {
 			view = "default",
 			numbers = "none",
@@ -147,9 +147,61 @@ function C.nvimtree()
 end
 
 function C.shade()
-	require'shade'.setup {
-		overlay_opacity = 40,
-	}
+    require 'shade'.setup {
+	overlay_opacity = 40,
+    }
+end
+
+function C.treesitter()
+    require 'nvim-treesitter.configs'.setup {
+	ensure_installed = {
+	    'bash',
+	    'comment',
+	    'graphql',
+	    'json',
+	    'latex',
+	    'regex',
+	    'query',
+	    'rst',
+	    'toml',
+	    'yaml',
+
+	    'c',
+	    'c_sharp',
+	    'cpp',
+
+	    'html',
+	    'css',
+	    'javascript',
+	    'scss',
+	    'svelte',
+	    'tsx',
+	    'typescript',
+	    'vue',
+	    
+	    'lua',
+	    'gdscript',
+	    'python',
+	    'ruby',
+	    'php',
+	    'rust',
+	    'go',
+	    'java',
+	    'kotlin',
+	    'r',
+	},
+	highlight = { enable = true },
+	indent = { enable = true },
+	-- incremental_selection = {
+	--     enable = true,
+	--     keymaps = {
+	-- 	init_selection = "gnn",
+	-- 	node_incremental = "grn",
+	-- 	scope_incremental = "grc",
+	-- 	node_decremental = "grm",
+	--     },
+	-- }
+    }
 end
 
 for i, config in pairs(configs) do C[config]() end

@@ -5,26 +5,26 @@ plugins = {
 	{'ayu-theme/ayu-vim'},
 	{'cocopon/iceberg.vim'},
 	{'farmergreg/vim-lastplace'},
-	{'karb94/neoscroll.nvim'},																		--learn
-	{'lewis6991/gitsigns.nvim',				requires = {'nvim-lua/plenary.nvim'}},					--menu & keymaps
-	{'terrortylor/nvim-comment'},																	--learn
-	{'iamcco/markdown-preview.nvim',		config = "vim.call('mkdp#util#install')"},				--menu & learn
-	{'hoob3rt/lualine.nvim',				requires = 'kyazdani42/nvim-web-devicons'},				--menu
+	{'karb94/neoscroll.nvim'},										-- learn
+	{'lewis6991/gitsigns.nvim',		    requires = {'nvim-lua/plenary.nvim'}},			-- menu, keymaps
+	{'terrortylor/nvim-comment'},										-- learn
+	{'iamcco/markdown-preview.nvim',	    config = "vim.call('mkdp#util#install')"},			-- menu, learn
+	{'hoob3rt/lualine.nvim',		    requires = 'kyazdani42/nvim-web-devicons'},			-- menu
+	{'nvim-treesitter/nvim-treesitter',	    run = ':TSUpdate'}						-- menu, conf folding
 
-	-- {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}										--conf
-	-- {'hrsh7th/nvim-compe'},																		--conf & learn
-	-- {'kyazdani42/nvim-tree.lua',			requires = 'kyazdani42/nvim-web-devicons'},				--conf & learn
+	-- {'hrsh7th/nvim-compe'},										-- conf, learn
+	-- {'kyazdani42/nvim-tree.lua',		    requires = 'kyazdani42/nvim-web-devicons'},			-- conf, learn
 
-	-- {'powerman/vim-plugin-AnsiEsc'},																--learn
-	-- {'jiangmiao/auto-pairs'} 																	--learn
-	-- {'ms-jpq/chadtree', branch='chad', run = ':CHADdeps'}
+	-- {'powerman/vim-plugin-AnsiEsc'},									-- learn
+	-- {'jiangmiao/auto-pairs'}										-- learn
+	-- {'ms-jpq/chadtree',			    branch='chad',  run = ':CHADdeps'}
 	-- {'tpope/vim-surround'}
 	
-	-- {'mhinz/vim-sayonara'},																		--yeet with a homemade solution
-	-- {'akinsho/nvim-bufferline.lua',			requires = 'kyazdani42/nvim-web-devicons'},			--help pages are hidden & menu
-	-- {'norcalli/nvim-colorizer.lua'},																--render bug, menu
-	-- {'lukas-reineke/indent-blankline.nvim',	branch = 'lua'},									--render bug
-	-- {'sunjon/shade.nvim'},																		--render bug https://github.com/sunjon/Shade.nvim/issues/6
+	-- {'mhinz/vim-sayonara'},										-- yeet with a homemade solution
+	-- {'akinsho/nvim-bufferline.lua',	    requires = 'kyazdani42/nvim-web-devicons'},			-- help pages are hidden & menu
+	-- {'norcalli/nvim-colorizer.lua'},									-- render bug, menu
+	-- {'lukas-reineke/indent-blankline.nvim',  branch = 'lua'},						-- render bug
+	-- {'sunjon/shade.nvim'},										-- render bug https://github.com/sunjon/Shade.nvim/issues/6
 }
 keymaps = {
 	'base',
@@ -41,6 +41,7 @@ configs = {
 	'nvimcomment',
 	'neoscroll',
 	'lualine',
+	'treesitter',
 	-- 'compe',
 	-- 'blankline',
 	-- 'sayonara',
