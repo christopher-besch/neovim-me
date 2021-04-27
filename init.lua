@@ -1,6 +1,6 @@
 require 'utils'
 require 'core'
-require 'plugins'
+require 'plugin_manager'
 require 'settings'
 require 'themes'
 require 'configs'

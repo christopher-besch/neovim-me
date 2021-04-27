@@ -4,9 +4,9 @@ plugins = {
 	{'wbthomason/packer.nvim'},
 	{'ayu-theme/ayu-vim'},
 	{'cocopon/iceberg.vim'},
+	{'farmergreg/vim-lastplace'},
 	{'karb94/neoscroll.nvim'},																		--learn
 	{'lewis6991/gitsigns.nvim',				requires = {'nvim-lua/plenary.nvim'}},					--menu & keymaps
-	{'farmergreg/vim-lastplace'},																	--noconf
 	{'terrortylor/nvim-comment'},																	--learn
 	{'iamcco/markdown-preview.nvim',		config = "vim.call('mkdp#util#install')"},				--menu & learn
 	{'hoob3rt/lualine.nvim',				requires = 'kyazdani42/nvim-web-devicons'},				--menu
@@ -59,7 +59,7 @@ themes = {
 }
 miscs = {
 	'abbrevs',
-	'edit_gz',
+	-- 'edit_gz', --causing man pages to open with no color
 	'open_uri',
 }
 
