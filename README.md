@@ -1,10 +1,12 @@
-<div style="text-align:center">
-<h1> NeovimMe </h1>
-<h3> A modular 100% LUA Neovim setup </h3>
+<div align="center">
+# NeovimMe - 100% LUA & Modular
+
+<a href="https://github.com/neovim/neovim"> ![Requires](https://img.shields.io/badge/requires-neovim%200.5%2B-green?style=flat-square&logo=neovim) </a>
+<a href="#wip"> ![Status](https://img.shields.io/badge/status-WIP-informational?style=flat-square) </a>
 </div>
 
 
-### TL;DR Summary
+# TL;DR Summary
 ```python
 .
 ├── init.lua			# entry point
@@ -22,7 +24,7 @@
 ```
 
 ---
-### Notes
+# Notes
 - `plugin_manager.lua` is setup with [packer](https://github.com/wbthomason/packer.nvim) by default,
 however with a bit of lua knowledge one can implement whatever plugin manager desired.
 
@@ -30,5 +32,5 @@ however with a bit of lua knowledge one can implement whatever plugin manager de
 	- `:ThemeSet n` switches to the theme with index `n`
 	- `:ThemeCycle` cycles between all themes
 
-### WIP
+# WIP
 this project is a wip which will keep evolving over time as more features are introduced.
