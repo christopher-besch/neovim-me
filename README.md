@@ -30,6 +30,8 @@ however with a bit of lua knowledge one can implement whatever plugin manager de
 - `themes.lua` implements
 	- `:ThemeSet n` switches to the theme with index `n`
 	- `:ThemeCycle` cycles between all themes
+	- `ThemeChangeBefore()` before theme change hook
+	- `ThemeChangeAfter()` after theme change hook
 
 # WIP
 - this project is a work in progress which will keep evolving over time as more features are introduced.

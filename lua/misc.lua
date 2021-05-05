@@ -1,11 +1,11 @@
 M = {}
 
-function M.abbrevs()
+function M.aliases()
 	-- write as sudo
 	abbrev 'w!! w !sudo tee > /dev/null %'
 
 	-- new tab help page
-	abbrev 'h tab help'
+	-- abbrev 'h tab help'
 
 	-- edit config file
 	-- abbrev 'conf tabnew $VIM_ROOT/init.vim'

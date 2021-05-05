@@ -1,5 +1,12 @@
 T = {}
 
+local function ThemeChangeBefore()
+end
+
+local function ThemeChangeAfter()
+    hi 'VertSplit cterm=NONE ctermbg=NONE ctermfg=233 gui=NONE guibg=NONE guifg=233'
+end
+
 function T.ayu(var)
 	theme_lualine = 'ayu_'..var
 	let('ayucolor', var)
@@ -15,8 +22,16 @@ end
 function ThemeSet(n)
 	n = tonumber(n)
 	local theme = themes[n]
-	if (type(theme) == 'string') then T[theme]() end
-	if (type(theme) == 'table') then T[theme[1]](theme[2]) end
+	if (type(theme) == 'string') then
+	    ThemeChangeBefore()
+	    T[theme]()
+	    ThemeChangeAfter()
+	end
+	if (type(theme) == 'table') then
+	    ThemeChangeBefore()
+	    T[theme[1]](theme[2])
+	    ThemeChangeAfter()
+	end
 end
 command('ThemeSet lua ThemeSet(<f-args>)', 1)
 

@@ -13,8 +13,8 @@ set 'noshowmode'
 set 'nospell'
 set 'spelllang=en_us'
 set 'nowrap'
+-- set 'hidden'					    -- 
 set 'termguicolors'				    -- Full Color Support
-set 'hidden'					    -- Required to keep multiple buffers open multiple buffers
 set 'splitbelow'				    -- Horizontal splits will automatically be below
 set 'splitright'				    -- Vertical splits will automatically be to the right
 set 'nowritebackup'				    -- Disable writebackup because some tools have issues with it
@@ -22,7 +22,6 @@ set 'ignorecase'				    -- Ignore case when searching
 set 'smartcase'					    -- Don't ignore case if pattern has caps
 set 'nocompatible'				    -- Disable strange Vi defaults
 set 'autoread'					    -- Reload unchanged files automatically
-set 'noexpandtab'				    -- Use actual tab character
 set 'nohlsearch'				    -- Disable search highligh by default
 set 'incsearch'					    -- Update highlighted words while searching
 
@@ -45,12 +44,6 @@ set 'sessionoptions	+=globals'		    -- Store global vars on session save
 set 'shortmess		+=c'			    -- Don't pass messages to |ins-completion-menu| (required by compe)
 set 'completeopt	=menuone,noselect'	    -- Set |ins-completion-menu| options (required by compe)
 set 'backspace		=indent,eol,nostop'	    -- Backspace like normal
-set 'tabstop		=8'
-set 'softtabstop	=4'
-set 'shiftwidth		=4'
--- set 'smartindent'
--- set 'cindent'
--- set 'breakindent'
 
 -- set 'nofoldenable'
 -- set 'foldmethod		=syntax'
@@ -60,6 +53,13 @@ set 'foldmethod		=indent'
 set 'foldnestmax	=2'
 set 'foldminlines	=1'
 
+set 'shiftwidth		=4'
+set 'tabstop        =4'
+set 'softtabstop	=4'
+set 'expandtab'
+set 'copyindent'
+set 'autoindent'
+set 'smartindent'
 
 
 -- set 'relativenumber'

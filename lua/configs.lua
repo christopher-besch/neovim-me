@@ -41,30 +41,30 @@ function C.blankline()
 	-- let('indent_blankline_char_highlight', 'LineNr')
 end
 
-function C.compe()
-	require 'compe'.setup {
-		enabled = true,
-		autocomplete = true,
-		debug = false,
-		min_length = 1,
-		preselect = 'enable',
-		throttle_time = 80,
-		source_timeout = 200,
-		incomplete_delay = 400,
-		max_abbr_width = 100,
-		max_kind_width = 100,
-		max_menu_width = 100,
-		documentation = true,
+function C.compe()	
+    require 'compe'.setup {
+	enabled = true,
+	autocomplete = true,
+	debug = false,
+	min_length = 1,
+	preselect = 'enable',
+	throttle_time = 80,
+	source_timeout = 200,
+	incomplete_delay = 400,
+	max_abbr_width = 100,
+	max_kind_width = 100,
+	max_menu_width = 100,
+	documentation = true,
 
-		source = {
-			path = false,
-			buffer = false,
-			calc = false,
-			nvim_lua = true,
-			vsnip = false,
-			nvim_lsp = false,
-		}
+	source = {
+	    buffer = true,
+	    nvim_lua = true,
+	    path = false,
+	    calc = false,
+	    vsnip = false,
+	    nvim_lsp = false,
 	}
+    }
 end
 
 function C.bufferline()
@@ -108,6 +108,25 @@ function C.bufferline()
 	}
 end
 
+function C.buftabline()
+	require("buftabline").setup {
+		modifier = ":t",
+		index_format = "%d: ",
+		icons = false,
+		auto_hide = false,
+		padding = 4,
+		go_to_maps = false,
+		kill_maps = false,
+		start_hidden = false,
+
+		disable_commands = false,
+		custom_map_prefix = nil,
+		custom_command = nil,
+		hlgroup_current = "TabLineSel",
+		hlgroup_normal = "TabLineFill",
+	}
+end
+
 function C.sayonara()
 	let('sayonara_confirm_quit', false)
 end
@@ -147,61 +166,65 @@ function C.nvimtree()
 end
 
 function C.shade()
-    require 'shade'.setup {
-	overlay_opacity = 40,
-    }
+	require 'shade'.setup {
+		overlay_opacity = 40,
+	}
 end
 
 function C.treesitter()
-    require 'nvim-treesitter.configs'.setup {
-	ensure_installed = {
-	    'bash',
+	require 'nvim-treesitter.configs'.setup {
+		ensure_installed = {
 	    'comment',
 	    'graphql',
-	    'json',
 	    'latex',
 	    'regex',
 	    'query',
+	    'bash',
+	    'json',
 	    'rst',
 	    'toml',
 	    'yaml',
 
-	    'c',
 	    'c_sharp',
 	    'cpp',
+	    'c',
 
-	    'html',
-	    'css',
 	    'javascript',
-	    'scss',
-	    'svelte',
-	    'tsx',
 	    'typescript',
+	    'svelte',
+	    'scss',
+	    'html',
+	    'tsx',
 	    'vue',
+	    'css',
 	    
-	    'lua',
 	    'gdscript',
 	    'python',
-	    'ruby',
-	    'php',
-	    'rust',
-	    'go',
-	    'java',
 	    'kotlin',
+	    'java',
+	    'ruby',
+	    'rust',
+	    'php',
+	    'lua',
+	    'go',
 	    'r',
-	},
-	highlight = { enable = true },
-	indent = { enable = true },
-	-- incremental_selection = {
-	--     enable = true,
-	--     keymaps = {
-	-- 	init_selection = "gnn",
-	-- 	node_incremental = "grn",
-	-- 	scope_incremental = "grc",
-	-- 	node_decremental = "grm",
-	--     },
-	-- }
+		},
+		highlight = { enable = true },
+			-- indent = { enable = true },
+			-- incremental_selection = {
+			-- 		enable = true,
+			-- 		keymaps = {
+			-- 	init_selection = "gnn",
+			-- 	node_incremental = "grn",
+			-- 	scope_incremental = "grc",
+			-- 	node_decremental = "grm",
+			-- 		},
+			-- }
     }
+end
+
+function C.navigator()
+	require 'navigator'.setup()
 end
 
 for i, config in pairs(configs) do C[config]() end
