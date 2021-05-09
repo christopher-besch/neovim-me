@@ -1,36 +1,44 @@
 -- vim: nofoldenable
 
 plugins = {
+    -- done
 	{'wbthomason/packer.nvim'},
 	{'ayu-theme/ayu-vim'},
 	{'cocopon/iceberg.vim'},
 	{'farmergreg/vim-lastplace'},
 	{'sheerun/vim-polyglot'},
 	{'karb94/neoscroll.nvim'},
-	{'lewis6991/gitsigns.nvim',                 requires = {'nvim-lua/plenary.nvim'}},                          -- menu, keymaps
-	{'terrortylor/nvim-comment'},                                                                               -- conf
-	{'iamcco/markdown-preview.nvim',            config = "vim.call('mkdp#util#install')"},                      -- menu
-	{'hoob3rt/lualine.nvim',                    requires = 'kyazdani42/nvim-web-devicons'},                     -- menu
 
-	-- {"jose-elias-alvarez/buftabline.nvim",      requires = {'kyazdani42/nvim-web-devicons'}},                   -- conf, learn, keymaps
-	
-	{'hrsh7th/nvim-compe'},                                                                                     -- conf, learn
-	-- {'kyazdani42/nvim-tree.lua',             requires = 'kyazdani42/nvim-web-devicons'},                     -- conf, learn
+	-- menus, keymaps
+	{'lewis6991/gitsigns.nvim',                 requires = {'nvim-lua/plenary.nvim'}},
+	{'iamcco/markdown-preview.nvim',            config = "vim.call('mkdp#util#install')"},
+	{'hoob3rt/lualine.nvim',                    requires = 'kyazdani42/nvim-web-devicons'},
 
-    -- {'akinsho/nvim-bufferline.lua',          requires = 'kyazdani42/nvim-web-devicons'},                     -- menu, help pages are hidden
-	-- {'powerman/vim-plugin-AnsiEsc'},                                                                         -- learn
-	-- {'jiangmiao/auto-pairs'}
-	-- {'ms-jpq/chadtree',                      branch='chad',  run = ':CHADdeps'}
-	-- {'tpope/vim-surround'}
-	
-	-- {'mhinz/vim-sayonara'},                                                                                  -- yeet with a homemade solution
-	-- {'norcalli/nvim-colorizer.lua'},                                                                         -- render bug, menu
-	-- {'lukas-reineke/indent-blankline.nvim',  branch = 'lua'},                                                -- render bug
+	-- conf
+    {'terrortylor/nvim-comment'},
 
-    {'neovim/nvim-lspconfig'},                                                                                  -- conf
-    {'glepnir/lspsaga.nvim'},                                                                                   -- conf
-	-- {'nvim-treesitter/nvim-treesitter',	        run = ':TSUpdate'},                                             -- menu, conf folding
-	-- {'ray-x/navigator.lua',                     requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}},   -- conf
+    -- learn
+    -- {"jose-elias-alvarez/buftabline.nvim",      requires = {'kyazdani42/nvim-web-devicons'}},
+    -- {'kyazdani42/nvim-tree.lua',                requires = 'kyazdani42/nvim-web-devicons'},
+    -- {'powerman/vim-plugin-AnsiEsc'},
+    -- {'jiangmiao/auto-pairs'}
+    -- {'ms-jpq/chadtree',                         branch='chad',  run = ':CHADdeps'}
+    -- {'tpope/vim-surround'}
+    -- {'ray-x/navigator.lua',                     requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}},
+    -- {'mfussenegger/nvim-dap'},
+
+	-- issues
+    -- {'akinsho/nvim-bufferline.lua',             requires = 'kyazdani42/nvim-web-devicons'},                      -- hidden :h pages
+    -- {'mhinz/vim-sayonara'},                                                                                      -- yeet with a homemade solution
+    -- {'lukas-reineke/indent-blankline.nvim',      branch = 'lua'},                                                -- render bug
+    -- {'norcalli/nvim-colorizer.lua'},                                                                             -- render bug
+    -- {'nvim-treesitter/nvim-treesitter',	        run = ':TSUpdate'},                                             -- no folding, syntax crash sometimes
+
+    -- testing
+    {'neovim/nvim-lspconfig'},
+    {'hrsh7th/nvim-compe'},
+    -- {'glepnir/lspsaga.nvim'},
+
 }
 keymaps = {
 	'base',

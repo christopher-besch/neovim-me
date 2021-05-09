@@ -12,7 +12,7 @@ function cmd(prop) vim.cmd(prop) end
 function set(prop) vim.cmd('set '..prop) end
 
 -- :setlocal
-function set(prop) vim.cmd('setlocal '..prop) end
+function setlocal(prop) vim.cmd('setlocal '..prop) end
 
 -- :
 function hi(prop) vim.cmd('hi '..prop) end

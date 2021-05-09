@@ -17,6 +17,9 @@ packer = require('packer')
 packer.init({
 	compile_path = fn.stdpath("data")..'/plugin/packer_compiled.vim',
 	-- opt_default = false,
+    git = {
+        clone_timeout = 100,
+    },
 })
 
 -- Plugins
