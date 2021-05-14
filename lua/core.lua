@@ -1,21 +1,31 @@
 -- vim: nofoldenable
 
-plugins = {
-    -- done
+Plugins = {
+    -- packers
 	{'wbthomason/packer.nvim'},
+
+	-- themes
+    {'npxbr/gruvbox.nvim',                      requires = {'rktjmp/lush.nvim'}},
 	{'ayu-theme/ayu-vim'},
 	{'cocopon/iceberg.vim'},
+    {'glepnir/zephyr-nvim'},
+
+    -- done
 	{'farmergreg/vim-lastplace'},
 	{'sheerun/vim-polyglot'},
 	{'karb94/neoscroll.nvim'},
-
-	-- menus, keymaps
+    {'terrortylor/nvim-comment'},
 	{'lewis6991/gitsigns.nvim',                 requires = {'nvim-lua/plenary.nvim'}},
 	{'iamcco/markdown-preview.nvim',            config = "vim.call('mkdp#util#install')"},
 	{'hoob3rt/lualine.nvim',                    requires = 'kyazdani42/nvim-web-devicons'},
 
 	-- conf
-    {'terrortylor/nvim-comment'},
+    -- LSP for more language servers https://github.com/kabouzeid/nvim-lspinstall
+    {'neovim/nvim-lspconfig'},
+    {'kabouzeid/nvim-lspinstall'},
+    {'hrsh7th/nvim-compe'},
+    {'onsails/lspkind-nvim'},
+    -- {'glepnir/lspsaga.nvim'},
 
     -- learn
     -- {"jose-elias-alvarez/buftabline.nvim",      requires = {'kyazdani42/nvim-web-devicons'}},
@@ -30,17 +40,14 @@ plugins = {
 	-- issues
     -- {'akinsho/nvim-bufferline.lua',             requires = 'kyazdani42/nvim-web-devicons'},                      -- hidden :h pages
     -- {'mhinz/vim-sayonara'},                                                                                      -- yeet with a homemade solution
-    -- {'lukas-reineke/indent-blankline.nvim',      branch = 'lua'},                                                -- render bug
+    -- {'lukas-reineke/indent-blankline.nvim',     branch = 'lua'},                                                 -- render bug
     -- {'norcalli/nvim-colorizer.lua'},                                                                             -- render bug
     -- {'nvim-treesitter/nvim-treesitter',	        run = ':TSUpdate'},                                             -- no folding, syntax crash sometimes
-
-    -- testing
-    {'neovim/nvim-lspconfig'},
-    {'hrsh7th/nvim-compe'},
-    -- {'glepnir/lspsaga.nvim'},
-
 }
-keymaps = {
+
+let('livepreview_previewer', 'open -a zathura')
+
+Keymaps = {
 	'base',
 	'packer',
 	'quit',
@@ -50,14 +57,16 @@ keymaps = {
 	-- 'sayonara',
 	-- 'nvimtree',
 }
-configs = {
+Configs = {
 	'gitsigns',
 	'nvimcomment',
 	'neoscroll',
 	'lualine',
 	-- 'treesitter',
 	-- 'buftabline',
-	'compe',
+    'lsp',
+    'lspkind',
+    'compe',
 	-- 'blankline',
 	-- 'sayonara',
 	-- 'colorizer',
@@ -65,15 +74,18 @@ configs = {
 	-- 'nvimtree',
 	-- 'navigator',
 }
-theme_curr = 1
-themes = {
+Theme_curr = 1
+Themes = {
+    {'zephyr'},
+    {'ayu',		'mirage'},
     {'ayu',		'dark'},
-	{'ayu',		'mirage'},
-    {'iceberg',	'dark'},
     {'ayu',		'light'},
-	{'iceberg',	'light'},
+    {'gruvbox',	'dark'},
+    {'gruvbox',	'light'},
+    {'iceberg',	'dark'},
+    {'iceberg',	'light'},
 }
-miscs = {
+Miscs = {
 	'aliases',
 	-- 'edit_gz', --causing man pages to open with no color
 	'open_uri',

@@ -27,4 +27,4 @@ local use = packer.use
 packer.reset()
 
 
-for i, plugin in pairs(plugins) do use(plugin) end
+for _, plugin in pairs(Plugins) do use(plugin) end

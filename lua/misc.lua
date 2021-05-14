@@ -45,4 +45,4 @@ function M.open_uri()
 	command('OpenURIUnderCursor lua OpenURIUnderCursor()')
 end
 
-for i, misc in pairs(miscs) do M[misc]() end
+for _, misc in pairs(Miscs) do M[misc]() end

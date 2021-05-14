@@ -118,4 +118,4 @@ function K.nvimtree()
 	-- map(N, '<leader>r',			':NvimTreeRefresh<CR>')
 end
 
-for i, keymap in pairs(keymaps) do K[keymap]() end
+for _, keymap in pairs(Keymaps) do K[keymap]() end
