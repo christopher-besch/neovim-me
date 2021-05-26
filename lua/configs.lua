@@ -6,14 +6,14 @@ end
 
 function C.colorizer()
     require 'colorizer'.setup({'*'}, {
-            RGB			= true,
-            RRGGBB		= true,
-            names		= true,
-            RRGGBBAA	= true,
-            rgb_fn		= true,
-            hsl_fn 		= true,
-            mode     	= 'background'
-        })
+        RGB			= true,
+        RRGGBB		= true,
+        names		= true,
+        RRGGBBAA	= true,
+        rgb_fn		= true,
+        hsl_fn 		= true,
+        mode     	= 'background'
+    })
 end
 
 function C.nvimcomment()
@@ -31,85 +31,6 @@ function C.neoscroll()
         stop_eof = true,
         respect_scrolloff = false,
         cursor_scrolls_alone = true,
-    }
-end
-
-function C.blankline()
-    -- let('indent_blankline_char', '┊')
-    -- let('indent_blankline_filetype_exclude', { 'help', 'packer' })
-    -- let('indent_blankline_buftype_exclude', { 'terminal', 'nofile'})
-    -- let('indent_blankline_char_highlight', 'LineNr')
-end
-
-function C.lsp()
-    local lspinstall = require 'lspinstall'
-    local lspconfig = require 'lspconfig'
-    lspinstall.setup()
-
-    -- update all installed language server
-    -- local languages = {'bash', 'cpp', 'css', 'html', 'lua', 'python', 'svelte', 'typescript', 'latex', 'yaml', 'json'}
-    -- for _, language in pairs(languages) do lspinstall.install_server(language) end
-
-    local servers = lspinstall.installed_servers()
-    for _, server in pairs(servers) do
-        lspconfig[server].setup{}
-    end
-end
-
-function C.lspkind()
-    require 'lspkind'.init({
-        -- with_text = false,
-        -- symbol_map = {
-        --   Constant = '',
-        --   Method = 'ƒ',
-        --   Function = '',
-        --   Constructor = '',
-        --   Variable = '',
-        --   Class = '',
-        --   Interface = 'ﰮ',
-        --   Module = '',
-        --   Property = '',
-        --   Unit = '',
-        --   Value = '',
-        --   Enum = '了',
-        --   File = '',
-        --   Folder = '',
-        --   Keyword = '',
-        --   Text = '',
-        --   Snippet = '﬌',
-        --   Color = '',
-        --   EnumMember = '',
-        --   Struct = ''
-        -- }
-    })
-end
-
-function C.compe()
-    require 'compe'.setup {
-        enabled = true,
-        debug = false,
-        autocomplete = true,
-        documentation = true,
-        preselect = 'enable',
-        min_length = 1,
-        throttle_time = 80,
-        source_timeout = 200,
-        incomplete_delay = 400,
-        max_abbr_width = 100,
-        max_kind_width = 100,
-        max_menu_width = 100,
-
-        source = {
-            buffer = true,
-            tags = true,
-            spell = true,
-            path = true,
-            calc = true,
-            nvim_lsp = true,
-
-            nvim_lua = false,
-            vsnip = false,
-        }
     }
 end
 
@@ -173,48 +94,102 @@ function C.buftabline()
     }
 end
 
-function C.sayonara()
-    let('sayonara_confirm_quit', false)
-end
-
 function C.lualine()
-    cmd ':hi! link DiffDelete WarningMsg'
+    -- cmd ':hi! link DiffDelete WarningMsg'
     require 'lualine'.setup {
         options = {
             theme = Theme_lualine,
-            section_separators = {'', ''},
-            component_separators = {'', ''},
-            icons_enabled = true,
         },
         sections = {
             lualine_a = {'mode'},
-            lualine_b = {'branch', {'diff'}},
+            lualine_b = {'branch', {'diff', colored = true, color_added = get_col('DiffAdd', 'fg'), color_modified = get_col('DiffChange', 'fg'), color_removed = get_col('DiffDelete', 'fg')}},
             lualine_c = {},
-            -- lualine_c = {{'filename', file_status=false}},
-            -- lualine_x = {{'diagnostics', sources={'nvim_lsp'}}},
-            lualine_x = {},
+            lualine_x = {{'diagnostics', sources={'nvim_lsp'}}},
             lualine_y = {'filetype'},
             lualine_z = {'location'},
         },
         inactive_sections = {
             lualine_a = {},
-            lualine_b = {},
+            lualine_b = {'filename'},
             lualine_c = {},
-            lualine_x = {'filetype', 'location'},
-            lualine_y = {},
+            lualine_x = {},
+            lualine_y = {'location'},
             lualine_z = {},
         }
     }
 end
 
-function C.nvimtree()
-    let('nvim_tree_show_icons', {git = 1, folders = 1, files = 1})
+function C.feline()
+    -- inits
+    local props = { force_inactive = { filetypes = {}, buftypes = {}, bufnames = {} } }
+    local comps = {left = {active = {}, inactive = {}}, mid = {active = {}, inactive = {}}, right = {active = {}, inactive = {}}}
+    local cols = {
+        bg = get_col('Normal', 'bg'),
+        fg = get_col('Title', 'fg'),
+        red = get_col('DiffDelete', 'fg'),
+        green = get_col('DiffAdd', 'fg'),
+        blue = get_col('DiffChange', 'fg'),
+    }
+    local function new_prop(name, type, val) table.insert(props[name][type], val) end
+    local function new_comp(pos, prov, c)
+        if c == nil then c = {} end
+
+        c.provider = prov
+
+        if pos == 'left' then c.right_sep = ' ' end
+        if pos == 'right' then c.left_sep = ' ' end
+        -- if pos == 'left' then c.right_sep = ' ' end
+        -- if pos == 'right' then c.left_sep = ' ' end
+        -- str = ' ',
+        -- hl = {
+        --     fg = 'NONE',
+        --     bg = 'oceanblue'
+        -- }
+        -- 
+        -- 
+
+        table.insert(comps[pos]['active'], c)
+    end
+    local function comp_hl(fg, bg, style) return function() return { fg = fg, bg = bg, style = style } end end
+
+    -- properties
+    new_prop('force_inactive', 'filetypes', 'packer')
+    new_prop('force_inactive', 'buftypes', 'terminal')
+
+    -- components
+    new_comp('left', get_curr_mode, { hl = comp_hl(cols.fg, cols.bg, 'bold') })
+    new_comp('left', "file_info", { hl = comp_hl(cols.fg, cols.bg, 'bold') })
+    new_comp('left', "git_branch", { hl = comp_hl(cols.red, cols.bg, 'bold'), icon = ' ' })
+    new_comp('left', "git_diff_added", { hl = comp_hl(cols.green, cols.bg, nil), icon = '+' })
+    new_comp('left', "git_diff_removed", { hl = comp_hl(cols.red, cols.bg, nil), icon = '-' })
+    new_comp('left', "git_diff_changed", { hl = comp_hl(cols.blue, cols.bg, nil), icon = '~' })
+
+    new_comp('right', "position")
+    new_comp('right', "file_type", { hl = comp_hl(cols.blue, cols.bg, nil) })
+    new_comp('right', "file_size", { hl = comp_hl(cols.fg, cols.bg, nil), enabled = function() return vim.fn.getfsize(vim.fn.expand('%:p')) > 0 end })
+    -- new_comp('right', "file_encoding")
+    -- new_comp("right", "lsp_client_names")
+    -- new_comp("right", "diagnostic_errors")
+    -- new_comp("right", "diagnostic_warnings")
+    -- new_comp("right", "diagnostic_hints")
+    -- new_comp("right", "diagnostic_info")
+
+    -- padding the bar on both sides
+    comps['left']['active'][1].left_sep = ' '
+    comps['right']['active'][#comps['right']['active']].right_sep = ' '
+    -- comps['left']['inactive'][1].left_sep = ' '
+    -- comps['right']['inactive'][1].right_sep = ' '
+
+    require 'feline'.setup {
+        components = comps,
+        properties = props,
+        default_fg = get_col("Normal", "fg"),
+        default_bg = get_col("Normal", "bg"),
+    }
 end
 
-function C.shade()
-    require 'shade'.setup {
-        overlay_opacity = 40,
-    }
+function C.nvimtree()
+    let('nvim_tree_show_icons', {git = 1, folders = 1, files = 1})
 end
 
 function C.treesitter()
@@ -267,10 +242,6 @@ function C.treesitter()
         -- 		},
         -- }
     }
-end
-
-function C.navigator()
-    require 'navigator'.setup()
 end
 
 for _, config in pairs(Configs) do C[config]() end

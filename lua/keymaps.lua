@@ -61,10 +61,13 @@ function K.base()
 	map(N,	'<leader>s',		':set invspell<CR>')						-- toggle spell check
 	map(N,	'<leader>n',		':set invrelativenumber<CR>')				-- toggle relative numbers
 	map(N,	'<leader>t',		':ThemeCycle<CR>')							-- cycle between installed themes
-	map(N,	'gx',				':lua OpenURIUnderCursor()<CR>')			-- open uri under cursor
-	map(N,	'Y',				'y$')										-- making Y act like C and D
-	map(N, '<A-Tab>',			'<C-w>p')									-- switch between last 2 windows
-	map(N, '<F2>',				'a<C-R>=strftime("%c")<CR><Esc>')			-- insert date
+	map(N,  'gx',				':lua OpenURIUnderCursor()<CR>')			-- open uri under cursor
+	map(N,  '<A-Tab>',			'<C-w>p')									-- switch between last 2 windows
+	map(N,  '<F2>',				'a<C-R>=strftime("%c")<CR><Esc>')			-- insert date
+    map(N,	'Y',				'y$')										-- making Y act like C and D
+    map(N,  'J',                'J$')                                       -- go to end after a join
+	map(N,  'S',                'T hr<CR>k$')                               -- split (opposite of J)
+
 	-- map(N, '<F5>', '') 													-- refresh
 end
 
@@ -82,20 +85,7 @@ end
 
 function K.quit()
 	map(N, '<C-q>',			   	':q<CR>')
-	map(I, '<C-q>',			   	'<ESC>:q<CR>')
-	map(V, '<C-q>',			  	'<ESC>:q<CR>')
 	map(N, '<S-q>',			  	':q!<CR>')
-	map(I, '<S-q>',			  	'<ESC>:q!<CR>')
-	map(V, '<S-q>',			  	'<ESC>:q!<CR>')
-end
-
-function K.sayonara()
-	map(N, '<C-q>',				':Sayonara<CR>')
-	map(I, '<C-q>',				'<ESC>:Sayonara<CR>')
-	map(V, '<C-q>',				'<ESC>:Sayonara<CR>')
-	map(N, '<S-q>',				':Sayonara!<CR>')
-	map(I, '<S-q>',				'<ESC>:Sayonara!<CR>')
-	map(V, '<S-q>',				'<ESC>:Sayonara!<CR>')
 end
 
 function K.bufferline()

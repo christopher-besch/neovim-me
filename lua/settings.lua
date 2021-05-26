@@ -24,6 +24,8 @@ set 'autoread'                                  -- Reload unchanged files automa
 set 'nohlsearch'                                -- Disable search highligh by default
 set 'incsearch'                                 -- Update highlighted words while searching
 
+
+set 'fillchars=fold:\\ ,eob:\\ '                -- filling chars for different places
 set 'guicursor		=a:hor25,v:block,i:ver25'   -- Changing cursor depending on mode
 set 'encoding		=utf-8'			            -- The encoding written to file (check encoding-names for more)
 set 'fileencoding	=utf-8'			            -- The encoding shown on screen (check encoding-names for more)
@@ -49,7 +51,7 @@ set 'backspace		=indent,eol,nostop'         -- Backspace like normal
 set 'foldmethod		=indent'
 -- set 'foldmethod		=expr'
 -- set 'foldexpr=nvim_treesitter#foldexpr()'
-set 'foldnestmax	=2'
+set 'foldnestmax	=4'
 set 'foldminlines	=1'
 
 set 'shiftwidth		=4'
@@ -59,7 +61,6 @@ set 'expandtab'
 set 'copyindent'
 set 'autoindent'
 set 'smartindent'
-
 
 -- set 'relativenumber'
 -- set 'title'
@@ -73,3 +74,12 @@ set 'smartindent'
 -- set 'keymodel	=startsel,stopsel'	    -- enable shift + arrows selection
 -- set 'mousemodel	=popup_setpos'
 -- set 'mousemodel	=popup'
+
+
+function meh()
+    local a = 1
+    local b = 1
+    local c = 1
+    local d = 1
+    local e = 1
+end

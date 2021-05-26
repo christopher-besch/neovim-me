@@ -1,33 +1,29 @@
 T = {}
 
+function T.material(var)
+    Theme_lualine = 'material'
+    -- let('material_disable_background', true)
+    -- let('material_italic_comments', true)
+    -- let('material_italic_keywords', true)
+    -- let('material_italic_functions', true)
+    let('material_contrast', true)
+    let('material_style', var)
+    cmd 'colo material'
+end
+
+function T.tokyonight(var)
+	Theme_lualine = 'tokyonight'
+    let('tokyonight_style', var)
+    cmd 'colo tokyonight'
+end
+
+
 local function ThemeChangeBefore()
 end
 
 local function ThemeChangeAfter()
-    hi 'VertSplit cterm=NONE ctermbg=NONE ctermfg=233 gui=NONE guibg=NONE guifg=233'
-end
-
-function T.ayu(var)
-	Theme_lualine = 'ayu_'..var
-	let('ayucolor', var)
-	cmd 'colo ayu'
-end
-
-function T.iceberg(var)
-	Theme_lualine = 'iceberg_'..var
-	set ('background='..var)
-	cmd 'colo iceberg'
-end
-
-function T.gruvbox(var)
-	Theme_lualine = 'gruvbox_'..var
-	set ('background='..var)
-	cmd 'colo gruvbox'
-end
-
-function T.zephyr()
-	Theme_lualine = 'auto'
-	cmd 'colo zephyr'
+    -- hi 'VertSplit cterm=NONE ctermbg=NONE ctermfg=233 gui=NONE guibg=NONE guifg=233'
+    -- hi 'EndOfBuffer ctermfg=black ctermbg=black'
 end
 
 function ThemeSet(n)
@@ -53,6 +49,5 @@ function ThemeCycle()
 	ThemeSet(Theme_curr)
 end
 command 'ThemeCycle lua ThemeCycle()'
-
 
 ThemeSet(Theme_curr)

@@ -2,29 +2,30 @@
 
 Plugins = {
     -- packers
-	{'wbthomason/packer.nvim'},
+    {'wbthomason/packer.nvim'},
 
-	-- themes
-    {'npxbr/gruvbox.nvim',                      requires = {'rktjmp/lush.nvim'}},
-	{'ayu-theme/ayu-vim'},
-	{'cocopon/iceberg.vim'},
-    {'glepnir/zephyr-nvim'},
+    -- themes
+    -- for more colorschemes with treesitter suuport https://github.com/rockerBOO/awesome-neovim#colorscheme
+    {'marko-cerovac/material.nvim'},
+    {'folke/tokyonight.nvim'},
+
 
     -- done
-	{'farmergreg/vim-lastplace'},
-	{'sheerun/vim-polyglot'},
-	{'karb94/neoscroll.nvim'},
+    {'farmergreg/vim-lastplace'},
+    {'karb94/neoscroll.nvim'},
     {'terrortylor/nvim-comment'},
-	{'lewis6991/gitsigns.nvim',                 requires = {'nvim-lua/plenary.nvim'}},
-	{'iamcco/markdown-preview.nvim',            config = "vim.call('mkdp#util#install')"},
-	{'hoob3rt/lualine.nvim',                    requires = 'kyazdani42/nvim-web-devicons'},
+    {'lewis6991/gitsigns.nvim',                 requires = {'nvim-lua/plenary.nvim'}},
+    {'iamcco/markdown-preview.nvim',            config = "vim.call('mkdp#util#install')"},
+    {'sheerun/vim-polyglot'},
+    -- {'tpope/vim-fugitive'},
+    -- {'hoob3rt/lualine.nvim',                    requires = 'kyazdani42/nvim-web-devicons'},
+    {'famiu/feline.nvim',                       requires = 'kyazdani42/nvim-web-devicons'},
 
-	-- conf
+    -- conf
     -- LSP for more language servers https://github.com/kabouzeid/nvim-lspinstall
     {'neovim/nvim-lspconfig'},
-    {'kabouzeid/nvim-lspinstall'},
     {'hrsh7th/nvim-compe'},
-    {'onsails/lspkind-nvim'},
+    -- {'kabouzeid/nvim-lspinstall'},
     -- {'glepnir/lspsaga.nvim'},
 
     -- learn
@@ -34,77 +35,65 @@ Plugins = {
     -- {'jiangmiao/auto-pairs'}
     -- {'ms-jpq/chadtree',                         branch='chad',  run = ':CHADdeps'}
     -- {'tpope/vim-surround'}
-    -- {'ray-x/navigator.lua',                     requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}},
     -- {'mfussenegger/nvim-dap'},
 
-	-- issues
-    -- {'akinsho/nvim-bufferline.lua',             requires = 'kyazdani42/nvim-web-devicons'},                      -- hidden :h pages
-    -- {'mhinz/vim-sayonara'},                                                                                      -- yeet with a homemade solution
-    -- {'lukas-reineke/indent-blankline.nvim',     branch = 'lua'},                                                 -- render bug
-    -- {'norcalli/nvim-colorizer.lua'},                                                                             -- render bug
-    -- {'nvim-treesitter/nvim-treesitter',	        run = ':TSUpdate'},                                             -- no folding, syntax crash sometimes
+    -- issues
+    -- {'akinsho/nvim-bufferline.lua',             requires = 'kyazdani42/nvim-web-devicons'},      -- hidden :h pages
+    -- {'norcalli/nvim-colorizer.lua'},                                                             -- render bug
+    
+    -- syntax
+    -- {'nvim-treesitter/nvim-treesitter',	        run = ':TSUpdate'},                                 -- no folding, syntax crash sometimes
 }
+
 
 let('livepreview_previewer', 'open -a zathura')
 
 Keymaps = {
-	'base',
-	'packer',
-	'quit',
-	'nvimcomment',
+    'base',
+    'packer',
+    'quit',
+    'nvimcomment',
     'tabs',
     -- 'bufferline',
-	-- 'sayonara',
-	-- 'nvimtree',
+    -- 'nvimtree',
 }
 Configs = {
-	'gitsigns',
-	'nvimcomment',
-	'neoscroll',
-	'lualine',
-	-- 'treesitter',
-	-- 'buftabline',
-    'lsp',
-    'lspkind',
-    'compe',
-	-- 'blankline',
-	-- 'sayonara',
-	-- 'colorizer',
-	-- 'bufferline',
-	-- 'nvimtree',
-	-- 'navigator',
+    'gitsigns',
+    'nvimcomment',
+    'neoscroll',
+    'feline',
+    -- 'lualine',
+    -- 'treesitter',
+
+    -- 'buftabline',
+    -- 'colorizer',
+    -- 'bufferline',
+    -- 'nvimtree',
 }
 Theme_curr = 1
 Themes = {
-    {'zephyr'},
-    {'ayu',		'mirage'},
-    {'ayu',		'dark'},
-    {'ayu',		'light'},
-    {'gruvbox',	'dark'},
-    {'gruvbox',	'light'},
-    {'iceberg',	'dark'},
-    {'iceberg',	'light'},
+    -- {'tokyonight', 'storm'},
+    -- {'tokyonight', 'night'},
+    -- {'tokyonight', 'day'},
+    {'material', 'deep ocean'},
+    {'material', 'lighter'},
+    {'material', 'oceanic'},
+    {'material', 'palenight'},
+    {'material', 'darker'},
 }
 Miscs = {
-	'aliases',
-	-- 'edit_gz', --causing man pages to open with no color
-	'open_uri',
+    'aliases',
+    'open_uri',
+    -- 'edit_gz', --causing man pages to open with no color
 }
 
 
 -- empty preset
--- plugins = {
--- 	{'wbthomason/packer.nvim'},
--- }
--- keymaps = {
--- 	'base',
--- 	'tabs',
--- 	'quit',
--- }
--- configs = {
--- }
--- themes = {
---     {'ayu',		'dark'},
--- }
--- miscs = {
--- }
+-- Plugins = {{'wbthomason/packer.nvim'}},
+-- Keymaps = {'base', 'tabs', 'quit'}
+-- Configs = {}
+-- Themes = {}
+-- Miscs = {}
+
+
+
