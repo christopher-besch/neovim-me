@@ -13,6 +13,10 @@ function K.nvimcomment()
 end
 
 function K.base()
+    -- quit
+	map(N, '<C-q>',			   	':q<CR>')
+	map(N, '<S-q>',			  	':q!<CR>')
+
 	-- write
 	map(N,	'<C-s>',			':w<CR>')
 	map(I,	'<C-s>',			'<ESC>:w<CR>')
@@ -41,14 +45,6 @@ function K.base()
 	-- page shifting
 	map(N,	'<C-Up>',			'<C-y>k')
 	map(N,	'<C-Down>',			'<C-e>j')
-
-	-- shift vertically
-	map(N,	'<A-Down>',			':m .+1<CR>==')
-	map(N,	'<A-Up>',			':m .-2<CR>==')
-	map(I,	'<A-Down>',			'<Esc>:m .+1<CR>==gi')
-	map(I,	'<A-Up>',			'<Esc>:m .-2<CR>==gi')
-	map(V,	'<A-Down>',			":m '>+1<CR>gv=gv")
-	map(V,	'<A-Up>',			":m '<-2<CR>gv=gv")
 
 	-- indent horizontally
 	map(N,	'<Tab>',			'>>_')
@@ -83,9 +79,24 @@ function K.tabs()
 	end
 end
 
-function K.quit()
-	map(N, '<C-q>',			   	':q<CR>')
-	map(N, '<S-q>',			  	':q!<CR>')
+function K.shifting()
+	map(N,	'<A-Down>',			':m .+1<CR>==')
+	map(N,	'<A-Up>',			':m .-2<CR>==')
+	map(I,	'<A-Down>',			'<Esc>:m .+1<CR>==gi')
+	map(I,	'<A-Up>',			'<Esc>:m .-2<CR>==gi')
+	map(V,	'<A-Down>',			":m '>+1<CR>gv=gv")
+	map(V,	'<A-Up>',			":m '<-2<CR>gv=gv")
+end
+
+function K.shifting_colorizer()
+    local postfix = ':ColorizerReloadAllBuffers<CR>'
+    -- local postfix = ''
+	map(N,	'<A-Down>',			':m .+1<CR>=='..postfix)
+	map(N,	'<A-Up>',			':m .-2<CR>=='..postfix)
+	map(I,	'<A-Down>',			'<Esc>:m .+1<CR>'..postfix..'==gi')
+	map(I,	'<A-Up>',			'<Esc>:m .-2<CR>'..postfix..'==gi')
+    map(V,	'<A-Down>',			":m '>+1<CR>"..postfix.."gv=gv")
+    map(V,	'<A-Up>',			":m '<-2<CR>"..postfix.."gv=gv")
 end
 
 function K.bufferline()

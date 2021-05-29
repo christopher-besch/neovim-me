@@ -20,6 +20,7 @@ Plugins = {
     -- {'tpope/vim-fugitive'},
     -- {'hoob3rt/lualine.nvim',                    requires = 'kyazdani42/nvim-web-devicons'},
     {'famiu/feline.nvim',                       requires = 'kyazdani42/nvim-web-devicons'},
+    {'norcalli/nvim-colorizer.lua'},                                                             -- render bug (fixable with buffer reload)
 
     -- conf
     -- LSP for more language servers https://github.com/kabouzeid/nvim-lspinstall
@@ -39,21 +40,18 @@ Plugins = {
 
     -- issues
     -- {'akinsho/nvim-bufferline.lua',             requires = 'kyazdani42/nvim-web-devicons'},      -- hidden :h pages
-    -- {'norcalli/nvim-colorizer.lua'},                                                             -- render bug
     
     -- syntax
     -- {'nvim-treesitter/nvim-treesitter',	        run = ':TSUpdate'},                                 -- no folding, syntax crash sometimes
 }
 
-
-let('livepreview_previewer', 'open -a zathura')
-
 Keymaps = {
     'base',
     'packer',
-    'quit',
     'nvimcomment',
     'tabs',
+    'shifting_colorizer',
+    -- 'shifting',
     -- 'bufferline',
     -- 'nvimtree',
 }
@@ -62,24 +60,23 @@ Configs = {
     'nvimcomment',
     'neoscroll',
     'feline',
+    'colorizer',
     -- 'lualine',
     -- 'treesitter',
-
     -- 'buftabline',
-    -- 'colorizer',
     -- 'bufferline',
     -- 'nvimtree',
 }
 Theme_curr = 1
 Themes = {
-    -- {'tokyonight', 'storm'},
-    -- {'tokyonight', 'night'},
-    -- {'tokyonight', 'day'},
     {'material', 'deep ocean'},
     {'material', 'lighter'},
     {'material', 'oceanic'},
     {'material', 'palenight'},
     {'material', 'darker'},
+    -- {'tokyonight', 'storm'},
+    -- {'tokyonight', 'night'},
+    -- {'tokyonight', 'day'},
 }
 Miscs = {
     'aliases',
@@ -94,6 +91,3 @@ Miscs = {
 -- Configs = {}
 -- Themes = {}
 -- Miscs = {}
-
-
-
