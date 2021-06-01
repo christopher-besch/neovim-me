@@ -119,4 +119,8 @@ function K.nvimtree()
 	-- map(N, '<leader>r',			':NvimTreeRefresh<CR>')
 end
 
+function K.neorg()
+    map(N, '<leader>d',			':Neorg keybind core.norg.qol.todo_items.todo.task_cycle<CR>')
+end
+
 for _, keymap in pairs(Keymaps) do K[keymap]() end

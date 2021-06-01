@@ -43,6 +43,14 @@ Plugins = {
     
     -- syntax
     -- {'nvim-treesitter/nvim-treesitter',	        run = ':TSUpdate'},                                 -- no folding, syntax crash sometimes
+    {'~/temp/neorg'},
+}
+
+require 'neorg'.setup {
+    load = {
+        ["core.defaults"] = {},
+        -- ["core.norg.concealer"] = {},
+    }
 }
 
 Keymaps = {
@@ -51,6 +59,7 @@ Keymaps = {
     'nvimcomment',
     'tabs',
     'shifting_colorizer',
+    'neorg',
     -- 'shifting',
     -- 'bufferline',
     -- 'nvimtree',
@@ -69,11 +78,11 @@ Configs = {
 }
 Theme_curr = 1
 Themes = {
-    {'material', 'deep ocean'},
-    {'material', 'lighter'},
-    {'material', 'oceanic'},
     {'material', 'palenight'},
+    {'material', 'lighter'},
     {'material', 'darker'},
+    {'material', 'oceanic'},
+    {'material', 'deep ocean'},
     -- {'tokyonight', 'storm'},
     -- {'tokyonight', 'night'},
     -- {'tokyonight', 'day'},
