@@ -80,8 +80,6 @@ function get_curr_mode()
 
     local raw_mode = vim.fn.mode():byte()
 
-    local selected_mode = "Unknown"
-
     for i, mode in pairs(modes) do
         if (mode == raw_mode) then
             return modes_names[i]
@@ -90,5 +88,5 @@ function get_curr_mode()
     end
 
     -- return raw_mode
-    return selected_mode
+    return "Unknown"
 end
