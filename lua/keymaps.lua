@@ -123,4 +123,24 @@ function K.neorg()
     map(N, '<leader>d',			':Neorg keybind core.norg.qol.todo_items.todo.task_cycle<CR>')
 end
 
+function K.lsp()
+    map(N, 'gD',        '<Cmd>lua vim.lsp.buf.declaration()<CR>')
+    map(N, 'gd',        '<Cmd>lua vim.lsp.buf.definition()<CR>')
+    map(N, 'K',         '<Cmd>lua vim.lsp.buf.hover()<CR>')
+    map(N, 'gi',        '<cmd>lua vim.lsp.buf.implementation()<CR>')
+    map(N, '<C-k>',     '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+    map(N, '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>')
+    map(N, '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>')
+    map(N, '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
+    map(N, '<space>D',  '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+    map(N, '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+    map(N, '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+    map(N, 'gr',        '<cmd>lua vim.lsp.buf.references()<CR>')
+    map(N, '<space>e',  '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+    map(N, '[d',        '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
+    map(N, ']d',        '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+    map(N, '<space>q',  '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
+    map(N, "<space>f",  "<cmd>lua vim.lsp.buf.formatting()<CR>")
+end
+
 for _, keymap in pairs(Keymaps) do K[keymap]() end
