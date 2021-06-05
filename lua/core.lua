@@ -63,6 +63,7 @@ Keymaps = {
     -- 'shifting',
     -- 'bufferline',
     -- 'nvimtree',
+    'lsp',
 }
 Configs = {
     'gitsigns',
