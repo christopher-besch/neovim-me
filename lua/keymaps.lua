@@ -60,8 +60,8 @@ function K.base()
 	map(N,  'gx',				':lua OpenURIUnderCursor()<CR>')			-- open uri under cursor
 	map(N,  '<A-Tab>',			'<C-w>p')									-- switch between last 2 windows
 	map(N,  '<F2>',				'a<C-R>=strftime("%c")<CR><Esc>')			-- insert date
-    map(N,	'Y',				'y$')										-- making Y act like C and D
-    map(N,  'J',                'J$')                                       -- go to end after a join
+	map(N,	'Y',				'y$')										-- making Y act like C and D
+	map(N,  'J',                'J$')                                       -- go to end after a join
 	map(N,  'S',                'T hr<CR>k$')                               -- split (opposite of J)
 
 	-- map(N, '<F5>', '') 													-- refresh
@@ -119,8 +119,16 @@ function K.nvimtree()
 	-- map(N, '<leader>r',			':NvimTreeRefresh<CR>')
 end
 
+function K.neoformat()
+	map(N,	'<leader>f',		':Neoformat<CR>')
+end
+
+function K.telescope()
+	map(N,	'<C-e>',		':Telescope find_files<CR>')
+end
+
 function K.neorg()
-    map(N, '<leader>d',			':Neorg keybind core.norg.qol.todo_items.todo.task_cycle<CR>')
+    map(N,	'<leader>d',		':Neorg keybind core.norg.qol.todo_items.todo.task_cycle<CR>')
 end
 
 function K.lsp()

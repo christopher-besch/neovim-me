@@ -59,34 +59,15 @@ end
 
 -- getters (WIP)
 function get_curr_mode()
-    -- unmapped modes
-    -- CTRL-V = "Visual blockwise",
-    -- CTRL-S = "Select blockwise",
-    -- ic     = "Insert mode completion |compl-generic|",
-    -- ix     = "Insert mode |i_CTRL-X| completion",
-    -- R      = "Replace |R|",
-    -- Rc     = "Replace mode completion |compl-generic|",
-    -- Rv     = "Virtual Replace |gR|",
-    -- Rx     = "Replace mode |i_CTRL-X| completion",
-    -- cv     = "Vim Ex mode |gQ|",
-    -- ce     = "Normal Ex mode |Q|",
-    -- r      = "Hit-enter prompt",
-    -- rm     = "The -- more -- prompt",
-    -- r?     = "A |:confirm| query of some sort",
-    -- !      = "Shell or external command is executing",
-
     local modes = { 110, "no", 118, 86, 22, "s", "S", "^S", 105, 99, "t" }
     local modes_names = { "Normal", "Pending Op", "Visual", "V-Line", "V-Block", "Select", "S-Line", "S-Block", "Insert", "Command", "Terminal" }
 
-    local raw_mode = vim.fn.mode():byte()
+    local mode_curr = vim.fn.mode():byte()
+    local selected_mode = "Unknown"
 
     for i, mode in pairs(modes) do
-        if (mode == raw_mode) then
-            return modes_names[i]
-            -- return ":D"
-        end
+        if (mode == mode_curr) then selected_mode = modes_names[i] end
     end
 
-    -- return raw_mode
-    return "Unknown"
+    return selected_mode
 end

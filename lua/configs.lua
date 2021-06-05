@@ -244,4 +244,13 @@ function C.treesitter()
     }
 end
 
+function C.neorg()
+	require 'neorg'.setup {
+		load = {
+			["core.defaults"] = {},
+			-- ["core.norg.concealer"] = {},
+		}
+	}
+end
+
 for _, config in pairs(Configs) do C[config]() end

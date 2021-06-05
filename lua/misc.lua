@@ -28,21 +28,4 @@ function M.open_uri()
     command('OpenURIUnderCursor lua OpenURIUnderCursor()')
 end
 
-function M.edit_gz()
-    -- edit compressed .gz files
-    augroup [[
-        autocmd BufReadPre,FileReadPre		*.gz set bin
-        autocmd BufReadPost,FileReadPost	*.gz '[,']!gunzip
-        autocmd BufReadPost,FileReadPost	*.gz set nobin
-        autocmd BufReadPost,FileReadPost	*.gz execute ":doautocmd BufReadPost " . expand("%:r")
-        autocmd BufWritePost,FileWritePost	*.gz !mv <afile> <afile>:r
-        autocmd BufWritePost,FileWritePost	*.gz !gzip <afile>:r
-
-        autocmd FileAppendPre				*.gz !gunzip <afile>
-        autocmd FileAppendPre				*.gz !mv <afile>:r <afile>
-        autocmd FileAppendPost				*.gz !mv <afile> <afile>:r
-        autocmd FileAppendPost				*.gz !gzip <afile>:r
-    ]]
-end
-
 for _, misc in pairs(Miscs) do M[misc]() end
