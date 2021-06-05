@@ -91,6 +91,7 @@ Themes = {
 Miscs = {
     'aliases',
     'open_uri',
+    'altered_comments',
     -- 'edit_gz', --causing man pages to open with no color
 }
 
