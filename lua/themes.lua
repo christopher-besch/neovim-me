@@ -11,13 +11,6 @@ function T.material(var)
     cmd 'colo material'
 end
 
-function T.tokyonight(var)
-	Theme_lualine = 'tokyonight'
-    let('tokyonight_style', var)
-    cmd 'colo tokyonight'
-end
-
-
 local function ThemeChangeBefore()
 end
 

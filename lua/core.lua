@@ -7,8 +7,6 @@ Plugins = {
 	-- themes
 	-- for more colorschemes with treesitter suuport https://github.com/rockerBOO/awesome-neovim#colorscheme
 	{'marko-cerovac/material.nvim'},
-	{'folke/tokyonight.nvim'},
-
 
 	-- done
 	{'farmergreg/vim-lastplace'},
@@ -80,9 +78,6 @@ Themes = {
 	{'material', 'lighter'},
 	{'material', 'oceanic'},
 	{'material', 'deep ocean'},
-	-- {'tokyonight', 'night'},
-	-- {'tokyonight', 'storm'},
-	-- {'tokyonight', 'day'},
 }
 Miscs = {
 	'aliases',
