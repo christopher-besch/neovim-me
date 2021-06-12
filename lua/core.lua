@@ -7,6 +7,7 @@ Plugins = {
 	-- themes
 	-- for more colorschemes with treesitter suuport https://github.com/rockerBOO/awesome-neovim#colorscheme
 	{'marko-cerovac/material.nvim'},
+	{'shatur/neovim-ayu'},
 
 	-- done
 	{'farmergreg/vim-lastplace'},

@@ -1,7 +1,6 @@
 T = {}
 
 function T.material(var)
-    Theme_lualine = 'material'
     -- let('material_disable_background', true)
     -- let('material_italic_comments', true)
     -- let('material_italic_keywords', true)
@@ -9,6 +8,17 @@ function T.material(var)
     let('material_contrast', true)
     let('material_style', var)
     cmd 'colo material'
+end
+
+function T.ayu(var)
+	if (var == 'mirage') then
+		vim.g.ayu_mirage = true
+		set('background=dark')
+	else
+		vim.g.ayu_mirage = false
+		set('background='..var)
+	end
+	cmd 'colo ayu'
 end
 
 local function ThemeChangeBefore()
