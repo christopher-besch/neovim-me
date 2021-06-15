@@ -74,11 +74,14 @@ Configs = {
 }
 Theme_curr = 1
 Themes = {
-	{'material', 'darker'},
-	{'material', 'palenight'},
-	{'material', 'lighter'},
-	{'material', 'oceanic'},
-	{'material', 'deep ocean'},
+	{'material',	'darker'},
+	{'ayu',			'dark'},
+	{'ayu',			'mirage'},
+	{'material',	'palenight'},
+	-- {'material',	'lighter'},
+	{'material',	'oceanic'},
+	{'material',	'deep ocean'},
+	-- {'ayu',			'light'},
 }
 Miscs = {
 	'aliases',

@@ -21,6 +21,10 @@ function T.ayu(var)
 	cmd 'colo ayu'
 end
 
+function T.default()
+	cmd 'colo default'
+end
+
 local function ThemeChangeBefore()
 end
 
