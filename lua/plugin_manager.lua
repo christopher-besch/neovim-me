@@ -1,25 +1,23 @@
 -- Bootstrapping
 local execute = vim.api.nvim_command
 local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+IsPackerInit = false
+
 if fn.empty(fn.glob(install_path)) > 0 then
-    execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
-    execute "packadd packer.nvim"
+	IsPackerInit = true
+	fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+	execute 'packadd packer.nvim'
 end
 
--- Auto compile when this file is saved
--- vim.cmd 'autocmd BufWritePost _plugins.lua PackerCompile'
-augroup "autocmd BufWritePost _plugins.lua PackerCompile"
-
-
 -- Settings
-packer = require('packer')
+local packer = require('packer')
 packer.init({
 	compile_path = fn.stdpath("data")..'/plugin/packer_compiled.vim',
 	-- opt_default = false,
-    git = {
-        clone_timeout = 100,
-    },
+	git = {
+		clone_timeout = 100,
+	},
 })
 
 -- Plugins
@@ -28,3 +26,5 @@ packer.reset()
 
 
 for _, plugin in pairs(Plugins) do use(plugin) end
+
+if (IsPackerInit) then execute 'PackerSync' end

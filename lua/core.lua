@@ -15,38 +15,43 @@ Plugins = {
 	{'terrortylor/nvim-comment'},
 	{'lewis6991/gitsigns.nvim',					requires = {'nvim-lua/plenary.nvim'}},
 	{'iamcco/markdown-preview.nvim',			config = "vim.call('mkdp#util#install')"},
-	{'sheerun/vim-polyglot'},
-	-- {'tpope/vim-fugitive'},
-	-- {'hoob3rt/lualine.nvim',                 requires = 'kyazdani42/nvim-web-devicons'},
-	{'famiu/feline.nvim',                       requires = 'kyazdani42/nvim-web-devicons'},
-	{'norcalli/nvim-colorizer.lua'},			-- render bug (fixable with buffer reload)
+	-- {'sheerun/vim-polyglot'},
+	-- {'hoob3rt/lualine.nvim',					requires = 'kyazdani42/nvim-web-devicons'},
+	{'famiu/feline.nvim',						requires = 'kyazdani42/nvim-web-devicons'},
+	{'norcalli/nvim-colorizer.lua'},																-- render bug (fixable with buffer reload)
 
 	-- conf
-	{'sbdchd/neoformat'},
-	{'nvim-telescope/telescope.nvim',			requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}},
-	-- LSP for more language servers https://github.com/kabouzeid/nvim-lspinstall
-	{'neovim/nvim-lspconfig'},
 	{'hrsh7th/nvim-compe'},
-	-- {'kabouzeid/nvim-lspinstall'},
-	-- {'glepnir/lspsaga.nvim'},
+	{'sbdchd/neoformat'},
+	{'nvim-telescope/telescope.nvim',			requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope-media-files.nvim'}}},
+
+	{'neovim/nvim-lspconfig'},
+	{'kabouzeid/nvim-lspinstall'},
+	{'L3MON4D3/LuaSnip'},
+	{'skywind3000/vim-quickui'},
+	-- {'hrsh7th/vim-vsnip'},
+	-- {'jose-elias-alvarez/null-ls.nvim'},
 
 	-- learn
-	-- {"jose-elias-alvarez/buftabline.nvim",      requires = {'kyazdani42/nvim-web-devicons'}},
-	-- {'kyazdani42/nvim-tree.lua',                requires = 'kyazdani42/nvim-web-devicons'},
+	-- {"jose-elias-alvarez/buftabline.nvim",	   requires = {'kyazdani41/nvim-web-devicons'}},
+	-- {'kyazdani42/nvim-tree.lua',				   requires = 'kyazdani42/nvim-web-devicons'},
 	-- {'powerman/vim-plugin-AnsiEsc'},
-	-- {'ms-jpq/chadtree',                         branch='chad',  run = ':CHADdeps'}
-	-- {'tpope/vim-surround'}
+	-- {'ms-jpq/chadtree',						   branch='chad',  run = ':CHADdeps'}
+	-- {'tpope/vim-surround'},
 	-- {'mfussenegger/nvim-dap'},
 
 	-- issues
-	-- {'akinsho/nvim-bufferline.lua',             requires = 'kyazdani42/nvim-web-devicons'},		-- hidden :h pages
-	-- {'nvim-treesitter/nvim-treesitter',	        run = ':TSUpdate'},								-- no folding, syntax crash sometimes
+	-- {'akinsho/nvim-bufferline.lua',			   requires = 'kyazdani42/nvim-web-devicons'},		-- hidden :h pages
+	-- {'ray-x/lsp_signature.nvim'},																-- isn't really needed since lsp supports hover calls
+	{'nvim-treesitter/nvim-treesitter',			run = ':TSUpdate'},									-- no folding, syntax crash sometimes
+	-- {'Xuyuanp/scrollbar.nvim'},																	-- requires proper tab closing
 
-	{'~/temp/neorg'},
+	-- {'~/temp/neorg'},
 }
 
 Keymaps = {
 	'base',
+	'quit',
 	'packer',
 	'nvimcomment',
 	'tabs',
@@ -54,6 +59,9 @@ Keymaps = {
 	'neorg',
 	'neoformat',
 	'telescope',
+	'compe',
+	'treesitter',
+	'quickui',
 	-- 'lsp',
 	-- 'shifting',
 	-- 'bufferline',
@@ -63,11 +71,15 @@ Configs = {
 	'gitsigns',
 	'nvimcomment',
 	'neoscroll',
+	'telescope',
+	'compe',
 	'feline',
 	'colorizer',
-	'neorg',
+	'quickui',
+	-- 'scrollbar',
+	-- 'neorg',
 	-- 'lualine',
-	-- 'treesitter',
+	'treesitter',
 	-- 'buftabline',
 	-- 'bufferline',
 	-- 'nvimtree',
@@ -86,12 +98,14 @@ Themes = {
 Miscs = {
 	'aliases',
 	'open_uri',
+	-- 'color_col',
+	'auto_groups',
 }
 
 
 -- empty preset
--- Plugins = {{'wbthomason/packer.nvim'}},
--- Keymaps = {'base', 'tabs', 'quit'}
+-- Plugins = {{'wbthomason/packer.nvim'}}
+-- Keymaps = {'base'}
 -- Configs = {}
 -- Themes = {}
 -- Miscs = {}

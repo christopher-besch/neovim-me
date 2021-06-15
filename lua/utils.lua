@@ -6,16 +6,29 @@ X = 'x'
 _ = ''
 
 -- :
-function cmd(prop) vim.cmd(prop) end
+function cmd(c) vim.cmd(c) end
 
 -- :set
 function set(prop) vim.cmd('set '..prop) end
 
 -- :setlocal
-function setlocal(prop) vim.cmd('setlocal '..prop) end
+function set_local(prop) vim.cmd('setlocal '..prop) end
 
 -- :hi
-function hi(prop) vim.cmd('hi '..prop) end
+function hi(args, mods)
+	mods = mods or ''
+	vim.cmd('hi'..mods..' '..args)
+end
+
+-- :call
+function call(func_name, ...)
+	local args = {}
+	for i = 1, select('#', ...), 1 do
+		local arg = select(i, ...)
+		table.insert(args, arg)
+	end
+	return vim.api.nvim_call_function(func_name, args)
+end
 
 -- :cnoreabbrev
 function abbrev(arg) vim.cmd('cnoreabbrev '..arg) end
@@ -46,8 +59,8 @@ end
 
 -- creates a command
 function command(cmd, nargs, attrs)
-    local attrs = attrs or ''
-    local nargs = nargs or 0
+    attrs = attrs or ''
+    nargs = nargs or 0
     vim.cmd('command'..attrs..' -nargs='..nargs..' '..cmd)
 end
 
@@ -56,6 +69,36 @@ function augroup(autocmd, name)
     name = name or 'end'
     vim.api.nvim_exec('augroup '..name..' \nautocmd!\n'..autocmd..'\naugroup end', false)
 end
+
+-- replace terminal codes in a vim map string
+function term_codes(str)
+	return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+function define_sign(name, text, hl)
+	local def = {}
+	if (text ~= nil) then def["text"] = text end
+	if (hl ~= nil) then def["hl"] = hl end
+	vim.fn.sign_define(name, def)
+end
+
+function seq(min, max, sep, step)
+	step = step or 1
+	local res = ""
+	for i = min, max, step do
+		res = res..i
+		if (i ~= max) then res = res..sep end
+	end
+	return res
+end
+
+-- get cursor position
+function get_pos() return call('getcurpos') end
+
+-- set cursor position
+function set_pos(pos) call('setpos', '.', pos) end
+
+-- print(seq(10, 20, ','))
 
 -- getters (WIP)
 function get_curr_mode()

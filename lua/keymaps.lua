@@ -13,10 +13,6 @@ function K.nvimcomment()
 end
 
 function K.base()
-    -- quit
-	map(N, '<C-q>',			   	':q<CR>')
-	map(N, '<S-q>',			  	':q!<CR>')
-
 	-- write
 	map(N,	'<C-s>',			':w<CR>')
 	map(I,	'<C-s>',			'<ESC>:w<CR>')
@@ -52,19 +48,23 @@ function K.base()
 	map(V,	'<Tab>',			'>gv')
 	map(V,	'<S-Tab>',			'<gv')
 
-	--misc
-	map(N,	'<leader>h',		':set invhlsearch<CR>')						-- toggle search higlight
-	map(N,	'<leader>s',		':set invspell<CR>')						-- toggle spell check
-	map(N,	'<leader>n',		':set invrelativenumber<CR>')				-- toggle relative numbers
+	-- misc
 	map(N,	'<leader>t',		':ThemeCycle<CR>')							-- cycle between installed themes
-	map(N,  'gx',				':lua OpenURIUnderCursor()<CR>')			-- open uri under cursor
-	map(N,  '<A-Tab>',			'<C-w>p')									-- switch between last 2 windows
-	map(N,  '<F2>',				'a<C-R>=strftime("%c")<CR><Esc>')			-- insert date
+	map(N,	'gx',				':lua OpenURIUnderCursor()<CR>')			-- open uri under cursor
+	map(N,	'<A-Tab>',			'<C-w>p')									-- switch between last 2 windows
+	map(N,	'<F2>',				'a<C-R>=strftime("%c")<CR><Esc>')			-- insert date
 	map(N,	'Y',				'y$')										-- making Y act like C and D
-	map(N,  'J',                'J$')                                       -- go to end after a join
-	map(N,  'S',                'T hr<CR>k$')                               -- split (opposite of J)
+	map(N,	'J',				'J$')										-- go to end after a join
+	map(N,	'S',				'T hr<CR>k$')								-- split (opposite of J)
 
-	-- map(N, '<F5>', '') 													-- refresh
+	-- map(N, '<F5>', '')													-- refresh
+	-- map(N,	'<leader>f',		":let g:cur_pos=getcurpos()<CR>gg=G<CR>:call setpos('.', g:cur_pos)<CR>", {})	-- formatting
+end
+
+function K.quit()
+	map(N, '<C-q>',				':q<CR>')
+	-- map(N, '<C-q>',				':tabclose!<CR>')
+	-- map(N, '<S-q>',				':q<CR>')
 end
 
 function K.tabs()
@@ -89,14 +89,15 @@ function K.shifting()
 end
 
 function K.shifting_colorizer()
-    local postfix = ':ColorizerReloadAllBuffers<CR>'
-    -- local postfix = ''
+	-- TODO: reload colorizer buffer with an autocmd instead
+	local postfix = ':ColorizerReloadAllBuffers<CR>'
+	-- local postfix = ''
 	map(N,	'<A-Down>',			':m .+1<CR>=='..postfix)
 	map(N,	'<A-Up>',			':m .-2<CR>=='..postfix)
 	map(I,	'<A-Down>',			'<Esc>:m .+1<CR>'..postfix..'==gi')
 	map(I,	'<A-Up>',			'<Esc>:m .-2<CR>'..postfix..'==gi')
-    map(V,	'<A-Down>',			":m '>+1<CR>"..postfix.."gv=gv")
-    map(V,	'<A-Up>',			":m '<-2<CR>"..postfix.."gv=gv")
+	map(V,	'<A-Down>',			":m '>+1<CR>"..postfix.."gv=gv")
+	map(V,	'<A-Up>',			":m '<-2<CR>"..postfix.."gv=gv")
 end
 
 function K.bufferline()
@@ -119,37 +120,56 @@ function K.nvimtree()
 	-- map(N, '<leader>r',			':NvimTreeRefresh<CR>')
 end
 
+function K.quickui()
+	function set_colors() -- TODO change once a better solution is found
+		hi 'link QuickBG Pmenu'
+		hi 'link QuickSel WarningMsg'
+		hi 'link QuickKey ErrorMsg'
+		-- hi 'link QuickOff DiffText'
+		-- hi 'link QuickHelp WarningMsg'
+	end
+	map(N, '<leader><leader>',	':lua set_colors()<CR>:call quickui#menu#open()<CR>')
+end
+
+function K.treesitter()
+	-- map(N, '<C-t>',				':TSBufEnable highlight<CR>')
+	-- map(N, '<C-t>',				':write | edit | TSBufEnable highlight<CR>')
+end
+
 function K.neoformat()
 	map(N,	'<leader>f',		':Neoformat<CR>')
 end
 
 function K.telescope()
-	map(N,	'<C-e>',		':Telescope find_files<CR>')
+	map(N,	'<C-e>',			':Telescope find_files<CR>')
 end
 
 function K.neorg()
-    map(N,	'<leader>d',		':Neorg keybind core.norg.qol.todo_items.todo.task_cycle<CR>')
+	map(N,	'<leader>d',		':Neorg keybind core.norg.qol.todo_items.todo.task_cycle<CR>')
+end
+
+function K.compe()
+	map(I,	'<CR>',				"compe#confirm('<CR>')", { noremap = true, silent = true, expr = true })
 end
 
 function K.lsp()
-    map(N, 'gD',                '<Cmd>lua vim.lsp.buf.declaration()<CR>')
-    map(N, 'gd',                '<Cmd>lua vim.lsp.buf.definition()<CR>')
-    map(N, 'K',                 '<Cmd>lua vim.lsp.buf.hover()<CR>')
-    map(N, 'gi',                '<cmd>lua vim.lsp.buf.implementation()<CR>')
-    map(N, '<C-k>',             '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-    map(N, '<leader>wa',        '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>')
-    map(N, '<leader>wr',        '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>')
-    map(N, '<leader>wl',        '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
-    map(N, '<leader>D',         '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-    map(N, '<leader>rn',        '<cmd>lua vim.lsp.buf.rename()<CR>')
-    map(N, '<leader>ca',        '<cmd>lua vim.lsp.buf.code_action()<CR>')
-    map(N, 'gr',                '<cmd>lua vim.lsp.buf.references()<CR>')
-    map(N, '<leader>e',         '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-    map(N, '[d',                '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
-    map(N, ']d',                '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
-    map(N, '<leader>q',         '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
-    map(N, "<leader>f",         "<cmd>lua vim.lsp.buf.formatting()<CR>")
+	-- map(N, 'gD',				':lua vim.lsp.buf.declaration()<CR>')
+	-- map(N, 'gd',				':lua vim.lsp.buf.definition()<CR>')
+	-- map(N, 'K',					':lua vim.lsp.buf.hover()<CR>')
+	-- map(N, 'gi',				':lua vim.lsp.buf.implementation()<CR>')
+	-- map(N, '<C-k>',				':lua vim.lsp.buf.signature_help()<CR>')
+	-- map(N, '<leader>wa',		':lua vim.lsp.buf.add_workspace_folder()<CR>')
+	-- map(N, '<leader>wr',		':lua vim.lsp.buf.remove_workspace_folder()<CR>')
+	-- map(N, '<leader>wl',		':lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
+	-- map(N, '<leader>D',			':lua vim.lsp.buf.type_definition()<CR>')
+	-- map(N, '<leader>rn',		':lua vim.lsp.buf.rename()<CR>')
+	-- map(N, '<leader>ca',		':lua vim.lsp.buf.code_action()<CR>')
+	-- map(N, 'gr',				':lua vim.lsp.buf.references()<CR>')
+	-- map(N, '<leader>e',			':lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+	-- map(N, '[d',				':lua vim.lsp.diagnostic.goto_prev()<CR>')
+	-- map(N, ']d',				':lua vim.lsp.diagnostic.goto_next()<CR>')
+	-- map(N, '<leader>q',			':lua vim.lsp.diagnostic.set_loclist()<CR>')
+	-- map(N, "<leader>f",			":lua vim.lsp.buf.formatting()<CR>")
 end
-
 
 for _, keymap in pairs(Keymaps) do K[keymap]() end
