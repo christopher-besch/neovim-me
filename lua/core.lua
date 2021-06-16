@@ -15,7 +15,7 @@ Plugins = {
 	{'terrortylor/nvim-comment'},
 	{'lewis6991/gitsigns.nvim',					requires = {'nvim-lua/plenary.nvim'}},
 	{'iamcco/markdown-preview.nvim',			config = "vim.call('mkdp#util#install')"},
-	-- {'sheerun/vim-polyglot'},
+	{'sheerun/vim-polyglot'},
 	-- {'hoob3rt/lualine.nvim',					requires = 'kyazdani42/nvim-web-devicons'},
 	{'famiu/feline.nvim',						requires = 'kyazdani42/nvim-web-devicons'},
 	{'norcalli/nvim-colorizer.lua'},																-- render bug (fixable with buffer reload)
@@ -43,7 +43,7 @@ Plugins = {
 	-- issues
 	-- {'akinsho/nvim-bufferline.lua',			   requires = 'kyazdani42/nvim-web-devicons'},		-- hidden :h pages
 	-- {'ray-x/lsp_signature.nvim'},																-- isn't really needed since lsp supports hover calls
-	{'nvim-treesitter/nvim-treesitter',			run = ':TSUpdate'},									-- no folding, syntax crash sometimes
+	-- {'nvim-treesitter/nvim-treesitter',			run = ':TSUpdate'},									-- no folding, syntax crash sometimes
 	-- {'Xuyuanp/scrollbar.nvim'},																	-- requires proper tab closing
 
 	-- {'~/temp/neorg'},
@@ -60,7 +60,7 @@ Keymaps = {
 	'neoformat',
 	'telescope',
 	'compe',
-	'treesitter',
+	-- 'treesitter',
 	'quickui',
 	-- 'lsp',
 	-- 'shifting',
@@ -79,7 +79,7 @@ Configs = {
 	-- 'scrollbar',
 	-- 'neorg',
 	-- 'lualine',
-	'treesitter',
+	-- 'treesitter',
 	-- 'buftabline',
 	-- 'bufferline',
 	-- 'nvimtree',
