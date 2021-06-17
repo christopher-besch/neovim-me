@@ -7,5 +7,5 @@
 - proper templated languages support (lookup that templating lsp server) (svelte)
 - configure installed servers
 - lookinto whatever [this](https://www.reddit.com/r/neovim/comments/clvlmm/command_line_completion_vertical_menu_nvim_and/) is
-- media previews in telescope (ueberzug installed)
-- tree sitter reload
+- logo highlights in status bar
+- add [next_word](https://github.com/Gavinok/compe-nextword) into compe (for docs writing)

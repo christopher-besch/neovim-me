@@ -97,9 +97,9 @@ end
 function C.lualine()
 	-- cmd ':hi! link DiffDelete WarningMsg'
 	require 'lualine'.setup {
-		options = {
-			theme = Theme_lualine,
-		},
+		-- options = {
+		--	theme = Theme_lualine,
+		-- },
 		sections = {
 			lualine_a = {'mode'},
 			lualine_b = {'branch', {'diff', colored = true, color_added = get_col('DiffAdd', 'fg'), color_modified = get_col('DiffChange', 'fg'), color_removed = get_col('DiffDelete', 'fg')}},
@@ -319,9 +319,9 @@ function C.compe()
 		source = {
 			path		= {menu = "", priority = 30, kind = ' '},
 			nvim_lsp	= {menu = "", priority = 20},
+			buffer		= {menu = "", priority = 10, kind = ' '}, -- TODO: figure why menu = "" doesn't work on this one
 
-			spell		= {menu = "", priority = 10, kind = ' '},
-			buffer		= false,
+			-- spell		= {menu = "", priority = 10, kind = ' '},
 			tags		= false,
 			vsnip		= false,
 			nvim_lua	= false,
