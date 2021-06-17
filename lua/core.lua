@@ -11,7 +11,6 @@ Plugins = {
 
 	-- done
 	{'farmergreg/vim-lastplace'},
-	{'karb94/neoscroll.nvim'},
 	{'terrortylor/nvim-comment'},
 	{'lewis6991/gitsigns.nvim',					requires = {'nvim-lua/plenary.nvim'}},
 	{'iamcco/markdown-preview.nvim',			config = "vim.call('mkdp#util#install')"},
@@ -21,9 +20,10 @@ Plugins = {
 	{'norcalli/nvim-colorizer.lua'},																-- render bug (fixable with buffer reload)
 
 	-- conf
+	{'karb94/neoscroll.nvim'},																		-- add visual & insert mode scrolling
 	{'hrsh7th/nvim-compe'},
 	{'sbdchd/neoformat'},
-	{'nvim-telescope/telescope.nvim',			requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope-media-files.nvim'}}},
+	{'nvim-telescope/telescope.nvim',			requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope-fzy-native.nvim'}, {'nvim-telescope/telescope-media-files.nvim'}}},
 
 	{'neovim/nvim-lspconfig'},
 	{'kabouzeid/nvim-lspinstall'},

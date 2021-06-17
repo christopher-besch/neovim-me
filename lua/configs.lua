@@ -286,6 +286,10 @@ function C.telescope()
 			buffer_previewer_maker = require "telescope.previewers".buffer_previewer_maker
 		},
 		extensions = {
+			fzy_native = {
+				override_generic_sorter = false,
+				override_file_sorter = true,
+			},
 			media_files = {
 				filetypes = {"png", "webp", "jpg", "jpeg"},
 				find_cmd = "rg"
@@ -293,6 +297,7 @@ function C.telescope()
 		}
 	}
 
+	require('telescope').load_extension('fzy_native')
 	require("telescope").load_extension("media_files")
 end
 
