@@ -375,9 +375,13 @@ function C.quickui()
 
 		table.insert(entries, padding)
 		for _, entry in pairs(in_entries) do
-			local title = prefix..entry[1]..postfix
-			local cmd = entry[2]
-			table.insert(entries, {title, cmd})
+			if (entry == spacer) then
+				table.insert(entries, spacer)
+			else
+				local title = prefix..entry[1]..postfix
+				local cmd = entry[2]
+				table.insert(entries, {title, cmd})
+			end
 		end
 		table.insert(entries, padding)
 
@@ -389,26 +393,27 @@ function C.quickui()
 	let('quickui_border_style', 0)
 	call 'quickui#menu#reset'
 
-	menu("&Action", {
+	menu("&Edit", {
 		{'&Format',					'Neoformat'},
 		{'&Retab',					'retab!'},
 		{'Remove Trailing &Space',	'%s/\\s\\+$//e'},
 	})
 
-	menu("&Toggle", {
-		{'Render &WS',				'set list!'},
-		{'&Highlight Search',		'set hlsearch!'},
-		{'&Spell Checker',			'set spell!'},
-		{'&Relative Numbers',		'set relativenumber!'},
-		{'&Folding',				'set foldenable!'},
+	menu("&View", {
+		{'&Whitespace',			'set list!'},
+		{'&Search Highlight',	'set hlsearch!'},
+		{'Spell &Checker',		'set spell!'},
+		{'&Relative Numbers',	'set relativenumber!'},
+		{'&Folding',			'set foldenable!'},
 	})
 
 	menu("&Git", {
 		{'&Reset Hunk',				'Gitsigns reset_hunk'},
 		{'&Preview Hunk',			'Gitsigns preview_hunk'},
+		{'&Blame Line',				'Gitsigns blame_line'},
+		padding,
 		{'&Stage Hunk',				'Gitsigns stage_hunk'},
 		{'&Unstage Hunk',			'Gitsigns undo_stage_hunk'},
-		{'&Blame Line',				'Gitsigns blame_line'},
 	})
 
 	local theme_entries = {{'Default', 'colorscheme default'}}
