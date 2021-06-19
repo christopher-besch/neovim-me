@@ -399,6 +399,10 @@ function C.quickui()
 		{'Remove Trailing &Space',	'%s/\\s\\+$//e'},
 	})
 
+	menu("&Insert", {
+		{'&Date',					'lua insert_text(date())'},
+	})
+
 	menu("&View", {
 		{'&Whitespace',			'set list!'},
 		{'&Search Highlight',	'set hlsearch!'},

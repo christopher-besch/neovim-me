@@ -52,7 +52,6 @@ function K.base()
 	map(N,	'<leader>t',		':ThemeCycle<CR>')							-- cycle between installed themes
 	map(N,	'gx',				':lua OpenURIUnderCursor()<CR>')			-- open uri under cursor
 	map(N,	'<A-Tab>',			'<C-w>p')									-- switch between last 2 windows
-	map(N,	'<F2>',				'a<C-R>=strftime("%c")<CR><Esc>')			-- insert date
 	map(N,	'Y',				'y$')										-- making Y act like C and D
 	map(N,	'J',				'J$')										-- go to end after a join
 	map(N,	'S',				'T hr<CR>k$')								-- split (opposite of J)
