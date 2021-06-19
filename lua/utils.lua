@@ -40,10 +40,10 @@ function autocmd(cmd) vim.cmd('autocmd '..cmd) end
 function get_col(group, id) return vim.fn.synIDattr(vim.fn.hlID(group), id) end
 
 -- sets a global var
-function let(k, v) vim.g[k] = v end
+function set_var(k, v) vim.g[k] = v end
 
 -- gets a global var
-function get(k) return vim.g[k] end
+function get_var(k) return vim.g[k] end
 
 -- maps a key
 function map(mode, lhs, rhs, opts)
@@ -75,6 +75,7 @@ function term_codes(str)
 	return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
+-- :sign define TODO: WIP
 function define_sign(name, text, hl)
 	local def = {}
 	if (text ~= nil) then def["text"] = text end
@@ -82,6 +83,7 @@ function define_sign(name, text, hl)
 	vim.fn.sign_define(name, def)
 end
 
+-- sequence generator
 function seq(min, max, sep, step)
 	step = step or 1
 	local res = ""
@@ -121,7 +123,7 @@ function insert_text(txt)
 	vim.cmd('normal a'..txt)
 end
 
--- getters (WIP)
+-- gets current vim mode in name TODO: WIP
 function get_curr_mode()
     local modes = { 110, "no", 118, 86, 22, "s", "S", "^S", 105, 99, "t" }
     local modes_names = { "Normal", "Pending Op", "Visual", "V-Line", "V-Block", "Select", "S-Line", "S-Block", "Insert", "Command", "Terminal" }

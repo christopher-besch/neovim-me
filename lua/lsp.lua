@@ -28,6 +28,9 @@ local configured_servers = {
 			},
 		},
 	},
+	cpp = {
+		-- cmd = split("clangd --background-index --compile-commands-dir /home/potato/temp/serenity/Build/i686/") -- TODO: make this project specific
+	}
 }
 
 

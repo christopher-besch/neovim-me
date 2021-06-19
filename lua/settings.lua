@@ -1,6 +1,6 @@
 map(_, '<Space>', '<Nop>')
-let('mapleader', ' ')
-let('maplocalleader', ' ')
+set_var('mapleader', ' ')
+set_var('maplocalleader', ' ')
 
 cmd 'syntax on'									-- Enable syntax highlighting
 cmd 'filetype plugin indent on'					-- Enable filetype detection, plugins, and indentation

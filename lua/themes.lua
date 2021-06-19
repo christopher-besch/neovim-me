@@ -5,8 +5,8 @@ function T.material(var)
 	-- let('material_italic_comments', true)
 	-- let('material_italic_keywords', true)
 	-- let('material_italic_functions', true)
-	let('material_contrast', true)
-	let('material_style', var)
+	set_var('material_contrast', true)
+	set_var('material_style', var)
 	cmd 'colo material'
 end
 

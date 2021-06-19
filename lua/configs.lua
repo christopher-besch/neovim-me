@@ -211,7 +211,7 @@ function C.feline()
 end
 
 function C.nvimtree()
-	let('nvim_tree_show_icons', {git = 1, folders = 1, files = 1})
+	set_var('nvim_tree_show_icons', {git = 1, folders = 1, files = 1})
 end
 
 function C.treesitter()
@@ -354,7 +354,7 @@ function C.compe()
 end
 
 function C.scrollbar()
-	let('scrollbar_shape', { head = '', body = '░', tail = '' })
+	set_var('scrollbar_shape', { head = '', body = '░', tail = '' })
 
 	augroup([[
 	autocmd CursorMoved,VimResized,QuitPre			* silent! lua require('scrollbar').show()
@@ -390,7 +390,7 @@ function C.quickui()
 	end
 
 	-- let('quickui_border_style, 2)
-	let('quickui_border_style', 0)
+	set_var('quickui_border_style', 0)
 	call 'quickui#menu#reset'
 
 	menu("&Edit", {
