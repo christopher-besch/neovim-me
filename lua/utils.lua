@@ -98,7 +98,28 @@ function get_pos() return call('getcurpos') end
 -- set cursor position
 function set_pos(pos) call('setpos', '.', pos) end
 
--- print(seq(10, 20, ','))
+-- gets the current date/time according to pattern
+function date(pattern)
+	pattern = pattern or "%Y-%m-%d_%X"
+	return os.date(pattern, os.time())
+end
+
+-- splits a string into a table
+function split(str, sep)
+	if sep == nil then sep = "%s" end
+	local res = {}
+	for s in string.gmatch(str, "([^"..sep.."]+)") do
+		table.insert(res, s)
+	end
+	return res
+end
+
+-- inserts text at cursor position TODO: WIP
+function insert_text(txt)
+	-- vim.cmd('startinsert')
+	-- vim.cmd('stopinsert')
+	vim.cmd('normal a'..txt)
+end
 
 -- getters (WIP)
 function get_curr_mode()
