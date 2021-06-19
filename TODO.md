@@ -2,10 +2,11 @@
 - understand how buffers interact with tabs, (use bufferline?)
 	- [to read](https://vim.fandom.com/wiki/Open_every_buffer_in_its_own_tabpage)
 - format without Neoformat if possible, (or make it install formatters locally)
-- language support dashboard, lsp, treesitter, neoformat .. etc
+- language support dashboard, lsp, treesitter, formatter, format on save .. etc
 - latex support
 - proper templated languages support (lookup that templating lsp server) (svelte)
 - configure installed servers
-- lookinto whatever [this](https://www.reddit.com/r/neovim/comments/clvlmm/command_line_completion_vertical_menu_nvim_and/) is
+- :LspStatus
 - logo highlights in status bar
-- add [next_word](https://github.com/Gavinok/compe-nextword) into compe (for docs writing)
+- see if [next_word](https://github.com/Gavinok/compe-nextword) is worth replacing builtin compe-spell
+- keywords highlighter, TODO, XXX, WIP, DEBUG .. etc
