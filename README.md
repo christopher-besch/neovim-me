@@ -1,5 +1,5 @@
 <div align="center">
-<h1 class="title" style="color: #8FFF6D;">◈  Neovim-Me ◈ </h1>
+<h1 class="title">◈  Neovim-Me ◈ </h1>
 <h4> 100% LUA, 200% Modular </h4>
 
 <a target="_blank" href="https://neovim.io"> ![Requires](https://img.shields.io/badge/requires-neovim%200.5%2B-green?style=flat-square&logo=neovim) </a>
@@ -7,18 +7,11 @@
 </div>
 
 
-## Aims to Have:
-- #### Readability
-	###### Everything has its obvious place
-
-- #### Modularity
-	###### Separation of concerns at its finest
-
-- #### Low File Count
-	###### No subdir hell
-
-- #### Stability
-	###### Sometimes modern featuers come with the cost of immaturity, That's where I draw the line
+## Project Goals
+- Readability: Everything has its obvious place.
+- Modularity: Separation of concerns at its finest.
+- Low File Count: No subdir hell.
+- Stability: Sometimes modern featuers come with the cost of immaturity, That's where I draw the line.
 
 
 ## Project Hierarchy
